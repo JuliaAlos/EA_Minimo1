@@ -1,0 +1,12 @@
+.fa-solid {
+    cursor: pointer;
+    margin-left: 7px;
+  }
+  table {
+    width: 80vw;
+  }
+
+  .card {
+    background-color: transparent;
+    align-items: center;
+  }

@@ -1,0 +1,80 @@
+h1 {
+  padding: 50px;
+  font-weight: bold;
+  font-size: 120px;
+  color:#fff;
+}
+
+h2 {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 40px;
+  color:rgb(27, 6, 118);
+  text-shadow: 4px 4px 5px rgb(221, 178, 225);
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+}
+
+.login {
+  min-width: 700px;
+  width: 100%;
+  height: 100%;
+  background-image: url("bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.box {
+  position: relative;
+  top: 0;
+  opacity: 1;
+  float: left;
+  padding: 100px 50px 40px 50px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  z-index: 5;
+  min-height: 60vh;
+}
+.box1 {
+  position: relative;
+  top: 0;
+  opacity: 1;
+  float: left;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  z-index: 5;
+  min-height: 60vh;
+}
+
+.login-wrapper .example-full-width,
+.login-wrapper .btn-block {
+  width: 100%;
+}
+.login-wrapper mat-card-header {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: 700;
+}
+.login-wrapper mat-card-header mat-card-title {
+  font-size: 30px;
+  margin: 0;
+}
+.login-card {
+  width: 600px;
+  margin: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

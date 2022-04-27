@@ -1,0 +1,95 @@
+<div class="container mt-5">
+  <span class=" title" style="font-style: italic; color: rgb(19, 19, 94);">BOOKS LIST</span>
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <button class="btn btn-success float-end" style="width: auto;" routerLink="/crear-book"><i
+            class="fa-solid fa-book-bible"></i></button>
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label><i class="fa-solid fa-magnifying-glass"></i> Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. El corredor del laberinto" #input />
+          </mat-form-field>
+        </div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="_id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let element">{{ element._id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>title</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.title }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="ISBN">
+            <th mat-header-cell *matHeaderCellDef>ISBN</th>
+            <td mat-cell *matCellDef="let element">{{ element.ISBN }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="photoURL">
+            <th mat-header-cell *matHeaderCellDef>photoURL</th>
+            <td mat-cell *matCellDef="let element">{{ element.photoURL }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>description</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.description}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="publishedDate">
+            <th mat-header-cell *matHeaderCellDef>publishedDate</th>
+            <td mat-cell *matCellDef="let element">{{ element.publishedDate }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="editorial">
+            <th mat-header-cell *matHeaderCellDef>editorial</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.editorial }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="rate">
+            <th mat-header-cell *matHeaderCellDef>rate</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.rate }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="categories">
+            <th mat-header-cell *matHeaderCellDef>categories</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.categories }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <i [routerLink]="['/editar-book', element._id]" class="fa-solid fa-pen-to-square text-primary"></i>
+              <i (click)="deleteBook(element._id)" class="fa-solid fa-trash text-danger"></i>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">
+              No data matching the filter "{{ input.value }}"
+            </td>
+          </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 100]" showFirstLastButtons
+          style="background-color: transparent; color:black">
+        </mat-paginator>
+        <h5 style="text-align: start; margin-top: 10px;" *ngIf="listBooks.length == 0">No hi ha books a la base de
+          dades</h5>
+      </div>
+    </div>
+  </div>
+</div>

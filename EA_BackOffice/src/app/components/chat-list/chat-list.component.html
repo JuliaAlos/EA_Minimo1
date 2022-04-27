@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title">LLISTAT DE CHATS</span>
+          <!-- <button class="btn btn-success float-end mx-1" routerLink="/">
+            ANAR A USERS
+          </button>
+          <button class="btn btn-success float-end" routerLink="/chat-create">
+            NOU CHAT
+          </button> -->
+          <table *ngIf="listChats.length > 0" class="table table-striped mt-3">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Participants</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let chat of listChats">
+                <td>{{ chat._id }}</td>
+                <td>{{ chat.name }}</td>
+                <td>{{ parseMembers(chat) }}</td>
+                <td>
+                  <i
+                    (click)="deleteChat(chat._id!)"
+                    class="fa-solid fa-trash text-danger"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5
+            style="text-align: center; margin-top: 10px"
+            *ngIf="listChats.length == 0"
+          >
+            No hi ha chats a la base de dades
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

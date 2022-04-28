@@ -1,1 +1,90 @@
-<p>dash-board works!</p>
+<section class="gradient-custom">
+    <div class="container my-5 py-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <div class="card" *ngIf="!dark" style="background-color: black; color: white;">
+                    <button type="button" class="btn btn-light" (click)="changeMode()">Change to Light mode</button>
+                    <div class="card-body p-4">
+                        <h4 class="text-center mb-4 pb-2">BOOKHUB comments section</h4>
+
+                        <div class="row">
+                            <div class="col">
+                                <div *ngFor="let comment of listComments">
+                                    <div class="d-flex flex-start">
+
+                                        <img class="rounded-circle shadow-1-strong me-3"
+                                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                                            alt="avatar" width="65" height="65" />
+                                        <div class="flex-grow-1 flex-shrink-1">
+                                            <div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <p class="mb-1">
+                                                        {{comment.user.userName}}
+                                                    </p>
+
+                                                    <div>
+                                                        <i (click)="likeComment(comment._id)"
+                                                            class="fas fa-thumbs-up fa-xs"></i>
+                                                    </div>
+                                                    <p>
+                                                        {{comment.likes}}</p>
+
+                                                </div>
+                                                <p class="small mb-0">
+                                                    {{comment.message}}
+                                                </p>
+                                                <div><i (click)="deleteComment(comment._id)"
+                                                        class="fa-solid fa-trash text-danger"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" *ngIf="dark" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+                    <button type="button" class="btn btn-dark" (click)="changeMode()">Change to Dark mode</button>
+                    <div class="card-body p-4">
+                        <h4 class="text-center mb-4 pb-2">BOOKHUB comments section</h4>
+
+                        <div class="row">
+                            <div class="col">
+                                <div *ngFor="let comment of listComments">
+                                    <div class="d-flex flex-start">
+
+                                        <img class="rounded-circle shadow-1-strong me-3"
+                                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                                            alt="avatar" width="65" height="65" />
+                                        <div class="flex-grow-1 flex-shrink-1">
+                                            <div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <p class="mb-1">
+                                                        {{comment.user.userName}}
+                                                    </p>
+
+                                                    <div>
+                                                        <i (click)="likeComment(comment._id)"
+                                                            class="fas fa-thumbs-up fa-xs"></i>
+                                                    </div>
+                                                    <p>
+                                                        {{comment.likes}}</p>
+
+                                                </div>
+                                                <p class="small mb-0">
+                                                    {{comment.message}}
+                                                </p>
+                                                <div><i (click)="deleteComment(comment._id)"
+                                                        class="fa-solid fa-trash text-danger"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

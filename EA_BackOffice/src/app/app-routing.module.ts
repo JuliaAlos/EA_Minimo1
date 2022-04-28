@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
 
   // DashBoard
-  { path: 'home', component: DashBoardComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: DashBoardComponent },
 
   // List of objects
   { path: 'listar-users', component: ListarUsersComponent, canActivate: [AuthGuard] },
